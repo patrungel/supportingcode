@@ -1,0 +1,15 @@
+---
+- name: Demonstrate list rotation
+  hosts: master_nodes
+
+  tasks:
+  - name: Use rotate_right filter in a playbook
+    run_once: true
+    delegate_to: localhost
+    debug:
+      msg: "{{ ['alpha', 'bravo', 'charlie', 'delta', 'echo'] | rotate_right(3) | join(',') }}"
+
+  - name: Use rotate_right filter in a template
+    delegate_to: localhost
+    debug:
+      msg: "config for {{ inventory_hostname }}: {{ lookup('template', './master_config.j2') }}"

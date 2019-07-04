@@ -1,0 +1,11 @@
+[master_nodes]
+master01 ansible_connection=local
+master02 ansible_connection=local
+master03 ansible_connection=local
+
+[etcd_nodes]
+etcd01 ansible_connection=local
+etcd02 ansible_connection=local
+etcd03 ansible_connection=local
+etcd04 ansible_connection=local
+etcd05 ansible_connection=local

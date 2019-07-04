@@ -1,0 +1,6 @@
+{% set rotated_endpoints = groups['etcd_nodes'] | rotate_right(groups['master_nodes'].index(inventory_hostname)) %}
+--endpoints=
+{%- for endpoint in rotated_endpoints %}
+{{ endpoint }}
+{{- "," if not loop.last else "" -}}
+{% endfor %}
